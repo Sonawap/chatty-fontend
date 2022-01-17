@@ -1,18 +1,24 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template>    
+    <div class="layout-wrapper d-lg-flex">
+        <Sidebar />
+        <Story />
+        <Chat />
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import { mapGetters } from "vuex";
+import Story from '../components/Story.vue'
+import Sidebar from '../components/Sidebar.vue'
+import Chat from '../components/Chat.vue'
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+    components: { Sidebar, Story, Chat },
+    computed: {
+        ...mapGetters({
+            user: "auth/user",
+        }),
+    },
+    name: 'Home',
 }
 </script>
+
