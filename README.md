@@ -1,4 +1,10 @@
-# fontend
+# Chatty fontend
+# build with vuejs, using axios for all the api request
+## https://github.com/Sonawap/chatty-backend
+# this is the link to the backend repo
+
+# Sonawap - +2347065425688
+## clone the repo
 
 ## Project setup
 ```
