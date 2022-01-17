@@ -3,6 +3,10 @@
 ## https://github.com/Sonawap/chatty-backend
 # this is the link to the backend repo
 
+# fontend deployment link: https://chat.codeitmi.com.ng/
+# backend deployment link: https://chatty.codeitmi.com.ng/
+
+
 # Sonawap - +2347065425688
 ## clone the repo
 
