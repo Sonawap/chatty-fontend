@@ -44,10 +44,27 @@ export default {
                     });
                 commit("SET_MESSAGES", response.data.chat);
                 commit("SET_CHAT", _group);
-                commit("SET_TYPE", 'GROUP');
+                commit("SET_TYPE", 'Group');
+            } catch (e) {
+                commit("SET_CHAT", null);
+            }
+        },
+
+        async setChats({ commit }, chat) {
+            try {
+                let data = {
+                    'chat_id': chat.id,
+                    'type': chat.model,
+                    'chatter' : chat.object.id
+                }
+                let response = await axios.post("chat/direct", data);
+                commit("SET_MESSAGES", response.data.chat);
+                commit("SET_CHAT", chat.object);
+                commit("SET_TYPE", chat.model);
             } catch (e) {
                 commit("SET_CHAT", null);
             }
         },
     },
+
 };

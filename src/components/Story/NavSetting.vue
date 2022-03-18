@@ -5,14 +5,9 @@
         </div>
 
         <div class="text-center border-bottom p-4">
-            <div class="mb-4 profile-user">
-                <img :src="user.avatar" class="rounded-circle avatar-lg img-thumbnail" alt="">
-                <button type="button" class="btn btn-light bg-light avatar-xs p-0 rounded-circle profile-photo-edit">
-                    <i class="ri-pencil-fill"></i>
-                </button>
-            </div>
+            <profilepic></profilepic>
 
-            <h5 class="font-size-16 mb-1 text-truncate">{{ user.fullname }}</h5>
+            <h5 class="font-size-16 mb-1 text-truncate">{{ user.name }}</h5>
             <div class="dropdown d-inline-block mb-1">
                 <a class="text-muted dropdown-toggle pb-1 d-block" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ user.status }} <i class="mdi mdi-chevron-down"></i>
@@ -221,8 +216,10 @@
 
 <script>
 import { mapGetters } from "vuex";
+import profilepic from '../profile/profilepic.vue';
 
 export default {
+    components: { profilepic },
     name: 'NavSetting',
     computed: {
         ...mapGetters({

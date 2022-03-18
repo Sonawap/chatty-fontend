@@ -104,6 +104,7 @@
             <!-- Start chat-group-list -->
             <div class="p-4 chat-message-list chat-group-list" data-simplebar>
                 <ul class="list-unstyled chat-list">
+                    <h6>My Groups</h6>
                     <li 
                         v-for="group in groups" 
                         :key="group.id"
@@ -149,7 +150,6 @@ export default {
             user: "auth/user",
             users: "auth/users",
             Fetchgroups: "group/groups",
-            OtherGroups: "group/public_groups",
         }),
     },
     data() {
@@ -162,12 +162,15 @@ export default {
             submitted: false,
             buttonText: 'Create Group',
             message: "No Group Found",
+            messagepublic: "No Public Group to Join"
         }
     },
 
     watch: {
         search(oldV, newV) {
             if (this.search.length > 0) {
+
+                //// search group belongs to
                 let filt = [...this.Fetchgroups];
                 let newfilt = filt.filter((item) => {
                     if (
@@ -181,6 +184,7 @@ export default {
                 this.message =
                     "Sorry, we can't find a match";
                 this.groups = newfilt;
+
             } else {
                 this.groups = this.Fetchgroups;
             }
@@ -193,7 +197,6 @@ export default {
         },
         ...mapActions({
             getGroups: "group/getGroups",
-            getOtherGroups: "group/getOtherGroups",
             setGroupChat: "chat/setGroupChat",
         }),
         submit() {
@@ -240,12 +243,6 @@ export default {
         this.getGroups().then(() => {
             this.groups = this.Fetchgroups;
         });
-
-        this.getOtherGroups();
-        
-    },
-
-    mounted() {
     },
 }
 </script>

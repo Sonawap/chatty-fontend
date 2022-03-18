@@ -10,13 +10,13 @@
             <!-- End Profile tab-pane -->
 
             <!-- Start chats tab-pane -->
-            <div class="tab-pane fade show d-none" id="pills-chat" role="tabpanel" aria-labelledby="pills-chat-tab">
+            <div class="tab-pane active" id="pills-chat" role="tabpanel" aria-labelledby="pills-chat-tab">
                 <nav-chat></nav-chat>
             </div>
             <!-- End chats tab-pane -->
             
             <!-- Start groups tab-pane -->
-            <div class="tab-pane active " id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
+            <div class="tab-pane " id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
                 <nav-group></nav-group>
             </div>
             <!-- End groups tab-pane -->
@@ -49,6 +49,7 @@ import NavSetting from './Story/NavSetting.vue'
 export default {
     components: { NavProfile, NavChat, NavGroup, NavContact, NavSetting },
     name: 'Story',
+    
 }
 </script>
 

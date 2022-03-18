@@ -53,23 +53,48 @@ export default {
                     "Start Typing to send message!",
                 )
             }else{
-                let data = {
-                    message : this.message,
-                    group_id : this.chat.id,
-                    type : this.type,
-                    chat_id : this.messages.id,
-                };
-                this.message = '';
-                this.buttonText = 'Sending...'
-                axios
-                    .post('message', data)
-                    .then((response) => {
-                        this.messages.messages.push(response.data.message);
-                        this.buttonText =`<i class="ri-send-plane-2-fill"></i>`;
-                        this.scrollToElement;
-                });
+
+                if(this.type == "Group"){
+                    let data = {
+                        message : this.message,
+                        group_id : this.chat.id,
+                        type : this.type,
+                        chat_id : this.messages.id,
+                    };
+                    this.message = '';
+                    this.buttonText = 'Sending...'  
+                    axios
+                        .post('message', data)
+                        .then((response) => {
+                            this.buttonText =`<i class="ri-send-plane-2-fill"></i>`;
+                            this.scrollToElement;
+                    });
+                }else{
+                    let data = {
+                        message : this.message,
+                        chat_id : this.messages.id,
+                        reciever_id: this.chat.id
+                    };
+                    this.message = '';
+                    this.buttonText = 'Sending...'
+                    axios
+                        .post('message/direct', data)
+                        .then((response) => {
+                            this.buttonText =`<i class="ri-send-plane-2-fill"></i>`;
+                            this.scrollToElement;
+                    });
+                }
+
+                
             }
         }
+    },
+
+    mounted() {
+        window.Echo.private('message.'+this.messages.id)
+        .listen('MessageEvent', (e) => {
+            this.messages.messages.push(e.message);
+        })
     },
     computed: {
         ...mapGetters({

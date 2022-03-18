@@ -6,13 +6,13 @@
                     <i class="ri-user-2-line"></i>
                 </a>
             </li>
-            <li class="nav-item d-none" data-bs-toggle="tooltip" data-bs-placement="top" title="Chats">
-                <a class="nav-link" id="pills-chat-tab" data-bs-toggle="pill" href="#pills-chat" role="tab">
+            <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Chats">
+                <a class="nav-link active" id="pills-chat-tab" data-bs-toggle="pill" href="#pills-chat" role="tab">
                     <i class="ri-message-3-line"></i>
                 </a>
             </li>
             <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Groups">
-                <a class="nav-link active" id="pills-groups-tab" data-bs-toggle="pill" href="#pills-groups" role="tab">
+                <a class="nav-link " id="pills-groups-tab" data-bs-toggle="pill" href="#pills-groups" role="tab">
                     <i class="ri-group-line"></i>
                 </a>
             </li>

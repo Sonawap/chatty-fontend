@@ -5,11 +5,15 @@ export default {
         token: null,
         user: "",
         users: "",
+        chats: ""
     },
 
     getters: {
         user(state) {
             return state.user;
+        },
+        chats(state) {
+            return state.chats;
         },
         users(state) {
             return state.users;
@@ -30,6 +34,13 @@ export default {
         SET_USERS(state, users) {
             state.users = users;
         },
+        SET_USERIMAGE(state, link) {
+            state.user.avatar = link;
+        },
+
+        SET_CHATS(state, chats) {
+            state.chats = chats;
+        },
     },
 
     actions: {
@@ -46,10 +57,18 @@ export default {
 
                 let users = await axios.get("users");
                 commit("SET_USERS", users.data.users);
+
+                let chats = await axios.get("user/allChats");
+                commit("SET_CHATS", chats.data.chats);
             } catch (e) {
                 commit("SET_TOKEN", null);
                 commit("SET_USER", "");
             }
+        },
+
+        setImage({ commit, state }, imageLink) {
+            commit("SET_USERIMAGE", "..");
+            commit("SET_USERIMAGE", imageLink);
         },
 
 

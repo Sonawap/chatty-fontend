@@ -16,8 +16,9 @@ import "./assets/js/app.js";
 
 import 'remixicon/fonts/remixicon.css';
 
-// axios.defaults.baseURL = "http://127.0.0.1:8000/api";
-axios.defaults.baseURL = "https://chatty.codeitmi.com.ng/api/";
+
+axios.defaults.baseURL = "http://127.0.0.1:8000/api";
+// axios.defaults.baseURL = "https://chatty.codeitmi.com.ng/api/";
 
 import NProgress from "nprogress";
 import "../node_modules/nprogress/nprogress.css";
@@ -53,6 +54,24 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(() => {
     NProgress.done();
+});
+
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
+
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.VUE_APP_WEBSOCKETS_KEY,
+    wsHost: process.env.VUE_APP_WEBSOCKETS_SERVER,
+    authEndpoint: 'http://127.0.0.1:8000/api/broadcasting/auth',
+    wsPort: 6001,
+    forceTLS: false,
+    auth: {
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    },
 });
 
 require("./store/subscribe");

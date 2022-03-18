@@ -22,7 +22,7 @@
                     <img :src="user.avatar" class="rounded-circle avatar-lg img-thumbnail" alt="">
                 </div>
 
-                <h5 class="font-size-16 mb-1 text-truncate">{{ user.fullname }}</h5>
+                <h5 class="font-size-16 mb-1 text-truncate">{{ user.name }}</h5>
                 <p class="text-muted text-truncate mb-1"><i class="ri-record-circle-fill font-size-10 text-success me-1 ms-0 d-inline-block"></i> Active</p>
             </div>
             <!-- End profile user -->

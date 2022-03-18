@@ -15,17 +15,19 @@
                                 <div class="me-3 ms-0">
                                     <img :src="chat.avatar" class="rounded-circle avatar-xs" alt="">
                                 </div>
-                                <div class="flex-grow-1 overflow-hidden" v-if="type == 'GROUP'">
+                                <div class="flex-grow-1 overflow-hidden" v-if="type == 'Group'">
                                     <h5 class="font-size-16 mb-0 text-truncate">
-                                        <a href="#" class="text-reset user-profile-show">#{{ chat.name }}</a> 
+                                        <a href="#" class="text-reset user-profile-show text-truncate">#{{ chat.name }}</a> 
                                     </h5>
                                     <p href="#" class="text-reset user-profile-show mb-0">{{ chat.description }}</p> 
                                 </div>
                                 <div class="flex-grow-1 overflow-hidden" v-else>
                                     <h5 class="font-size-16 mb-0 text-truncate">
-                                        <a href="#" class="text-reset user-profile-show">{{ chat.fullname }}</a> 
+                                        <a href="#" class="text-reset user-profile-show">{{ chat.name }}</a> 
                                         <i class="ri-record-circle-fill font-size-10 text-success d-inline-block ms-1"></i>
                                     </h5>
+                                    <p href="#" class="text-reset user-profile-show mb-0">{{ chat.email }}</p> 
+                                    
                                 </div>
                             </div>
                         </div>
